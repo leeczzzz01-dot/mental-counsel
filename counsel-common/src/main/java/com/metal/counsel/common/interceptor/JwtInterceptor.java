@@ -45,6 +45,11 @@ public class JwtInterceptor implements HandlerInterceptor {
         return true;
     }
 
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
+    }
+
     private void writeUnauthorized(HttpServletResponse response) throws IOException {
         response.setStatus(401);
         response.setContentType("application/json;charset=UTF-8");

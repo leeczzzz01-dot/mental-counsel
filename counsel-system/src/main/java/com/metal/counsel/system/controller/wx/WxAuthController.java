@@ -23,7 +23,9 @@ public class WxAuthController {
 
     /**
      * 微信小程序登录
-     * POST /auth/wx-login
+     *
+     * @param request 包含从微信前端获取到的 code 凭证
+     * @return 返回带有系统 Token、用户昵称和角色的微信登录响应实体
      */
     @PostMapping("/wx-login")
     public Result<WxLoginVO> wxLogin(@RequestBody WxLoginDTO request) {

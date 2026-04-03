@@ -80,4 +80,10 @@ public class MenuService {
         menuMapper.deleteById(id);
     }
 
+    public List<Menu> getMenuList(Long roleId){
+        if (roleId != null){
+            return menuMapper.selectMenusByRoleId(roleId);
+        }
+        return menuMapper.selectList(null);
+    }
 }
